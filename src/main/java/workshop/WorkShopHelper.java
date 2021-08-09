@@ -30,17 +30,21 @@ public class WorkShopHelper {
             throw new RuntimeException("judgeResult fail targetStr.length() != guessStr.length");
         }
 
-        int currentNumber = 0;
-        int errorNumber = 0;
+        int aNumber = 0;
+        int bNumber = 0;
         for (int i = 0; i < targetStr.length(); i++) {
             char t = targetStr.charAt(i);
             char g = guessStr.charAt(i);
             if (t == g) {
-                currentNumber++;
+                aNumber++;
             } else {
-                errorNumber++;
+                for (int j = 0; j < targetStr.length(); j++) {
+                    if (targetStr.charAt(j) == g) {
+                        bNumber++;
+                    }
+                }
             }
         }
-       return currentNumber + "A" + errorNumber + "B";
+       return aNumber + "A" + bNumber + "B";
     }
 }

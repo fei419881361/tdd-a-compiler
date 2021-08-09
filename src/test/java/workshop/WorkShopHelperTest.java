@@ -49,8 +49,15 @@ public class WorkShopHelperTest {
     public void should_return_correct_number() {
         String targetStr = "1234";
         String guessStr = "9876";
+        assertEquals("0A0B", WorkShopHelper.judgeResult(targetStr, guessStr));
+
+        targetStr = "1234";
+        guessStr = "1234";
+        assertEquals("4A0B", WorkShopHelper.judgeResult(targetStr, guessStr));
+
+        targetStr = "1234";
+        guessStr = "4321";
         assertEquals("0A4B", WorkShopHelper.judgeResult(targetStr, guessStr));
     }
-
 
 }
